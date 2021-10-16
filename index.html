@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/a.js"></script>
+    <script src="js/aes.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">AES-INADOR</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">CIFRA-INADOR
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="des.html">DESCIFRA-INADOR</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">RAMIREZ ARANDA DANTE ISRAEL-5IV8</a>
+              </li>
+              
+          </div>
+        </div>
+      </nav>
+
+
+    <h5>Ingresa el texto a cifrar</h5>
+    <div class="container">
+        <textarea name="mensaje" id="contenido-archivo" cols="50" rows="0" ></textarea>
+    </div>
+
+    <h5>Ingresa la llave</h5>
+    <div class="container">
+        <textarea name="password" id="demo1" cols="50" rows="0" ></textarea>
+    </div>
+
+    <h5>Cifra tu mensaje</h5>
+    <div class="container">
+        <button class="btn btn-secondary" onclick="validar()">128</button>
+        <button class="btn btn-secondary" onclick="validar2()">192</button>
+        <button class="btn btn-secondary" onclick="validar3()">256</button>
+    </div>
+
+    <h5>Previsualización</h5>
+    <div class="container">
+        <textarea id="demo32" cols="50" rows="0"  readonly></textarea>
+    </div>
+    <div class="container">
+        <textarea id="saldjp" cols="50" rows="0" readonly></textarea>
+    </div>
+
+    <div class="container">
+        <button id="s" class="btn btn-secondary">TXT</button>
+    </div>
+
+
+   
+    <script>
+        $("#s").click(function () {
+            var cth = document.getElementById("saldjp").value;
+            var blob = new Blob([cth], { type: "text/plain;charset=utf-8" });
+            if (cth == "") {
+                alert("Antes, cifra tu mensaje.");
+            } else {
+                saveAs(blob, "Mensaje.txt");
+            }
+        });
+    </script>
+    
+</body>
+
+</html>
